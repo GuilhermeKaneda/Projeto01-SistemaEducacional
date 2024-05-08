@@ -195,7 +195,7 @@ SELECT nome_curso FROM (disciplina NATURAL INNER JOIN disciplina_curso) NATURAL 
 SELECT nome_curso FROM (aluno NATURAL INNER JOIN matricula) NATURAL INNER JOIN curso WHERE cpf='123.456.789-01'
 
 --Exercicio 5
-SELECT nome_aluno FROM (curso NATURAL INNER JOIN matricula) NATURAL INNER JOIN aluno WHERE nome_curso='Física Nuclear'
+SELECT DISTINCT nome_aluno, cpf FROM (curso NATURAL INNER JOIN matricula) NATURAL INNER JOIN aluno WHERE nome_curso='Física Nuclear'
 
 -- Exercicio 6
 SELECT DISTINCT nome_aluno, cpf FROM (disciplina NATURAL INNER JOIN grade) NATURAL INNER JOIN matricula NATURAL INNER JOIN aluno
@@ -209,8 +209,8 @@ SELECT nome_aluno FROM (matricula NATURAL INNER JOIN aluno) WHERE formado=false
 
 -- Exercicio 9
 SELECT COUNT (ra) FROM (curso NATURAL INNER JOIN matricula) 
-WHERE nome_curso='Psicologia Clínica' AND formado=true
+WHERE nome_curso='Psicologia Clínica' AND formado=false
 
 -- Exercicio 10
 SELECT COUNT (ra) FROM (disciplina NATURAL INNER JOIN grade) NATURAL INNER JOIN matricula
-WHERE nome_disciplina='Equações Diferenciais' AND formado=true
+WHERE nome_disciplina='Equações Diferenciais' AND formado=false
