@@ -192,7 +192,7 @@ SELECT nome_curso FROM (departamento NATURAL INNER JOIN curso) WHERE area='Tecno
 SELECT nome_curso FROM (disciplina NATURAL INNER JOIN disciplina_curso) NATURAL INNER JOIN curso WHERE nome_disciplina='Equações Diferenciais'
 
 -- Exercicio 4
-SELECT nome_curso FROM (aluno NATURAL INNER JOIN matricula) NATURAL INNER JOIN curso WHERE nome_aluno='João Silva'
+SELECT nome_curso FROM (aluno NATURAL INNER JOIN matricula) NATURAL INNER JOIN curso WHERE cpf='123.456.789-01'
 
 --Exercicio 5
 SELECT nome_aluno FROM (curso NATURAL INNER JOIN matricula) NATURAL INNER JOIN aluno WHERE nome_curso='Física Nuclear'
