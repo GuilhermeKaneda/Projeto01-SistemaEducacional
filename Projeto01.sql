@@ -182,8 +182,8 @@ SELECT * FROM endereco
 SELECT * FROM contato
 
 -- Exercicio 1
-SELECT cpf, idade, email, telefone, rua, bairro, complemento, numero, cidade FROM (aluno NATURAL INNER JOIN contato) 
-NATURAL INNER JOIN endereco WHERE nome_aluno='João Silva'
+SELECT DISTINCT nome_aluno, cpf, idade, email, telefone, rua, bairro, complemento, numero, cidade FROM matricula NATURAL INNER JOIN
+aluno NATURAL INNER JOIN contato NATURAL INNER JOIN endereco WHERE nome_aluno='João Silva' OR ra=10
 
 -- Exercicio 2
 SELECT nome_curso FROM (departamento NATURAL INNER JOIN curso) WHERE area='Tecnologia'
@@ -208,9 +208,9 @@ SELECT nome_aluno FROM (matricula NATURAL INNER JOIN aluno) WHERE formado=true
 SELECT nome_aluno FROM (matricula NATURAL INNER JOIN aluno) WHERE formado=false
 
 -- Exercicio 9
-SELECT COUNT (ra) FROM (curso NATURAL INNER JOIN matricula) 
-WHERE nome_curso='Psicologia Clínica' AND formado=false
+SELECT nome_curso, COUNT (ra) FROM curso NATURAL INNER JOIN matricula
+WHERE formado=false GROUP BY nome_curso
 
 -- Exercicio 10
-SELECT COUNT (ra) FROM (disciplina NATURAL INNER JOIN grade) NATURAL INNER JOIN matricula
-WHERE nome_disciplina='Equações Diferenciais' AND formado=false
+SELECT nome_disciplina, COUNT (ra) FROM disciplina NATURAL INNER JOIN grade NATURAL INNER JOIN matricula
+WHERE formado=false GROUP BY nome_disciplina
